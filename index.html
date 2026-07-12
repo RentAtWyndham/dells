@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E3A5C">
+<title>Wisconsin Dells Rental Deals · RentAtWyndham</title>
+<meta name="description" content="Resort condos at Glacier Canyon and across the Wisconsin Dells — below-retail deals from RentAtWyndham. Join 22,000+ members getting deal alerts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lake:#0E3A5C; --lake-deep:#092A44; --spray:#2E9BC4;
+    --sand:#F2E9DC; --ink:#10222E; --sun:#E8A33D; --white:#FFFFFF;
+    --fb:#1877F2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Outfit',system-ui,sans-serif;background:var(--sand);color:var(--ink);-webkit-font-smoothing:antialiased}
+
+  /* ---------- HERO ---------- */
+  .hero{background:linear-gradient(172deg,var(--lake) 0%,var(--lake-deep) 90%);color:var(--sand);
+    padding:56px 24px 88px;text-align:center;position:relative}
+  .wordmark{font-size:11px;letter-spacing:.34em;font-weight:600;color:var(--spray);text-transform:uppercase}
+  .hero h1{font-family:'Fraunces',serif;font-weight:650;color:var(--white);
+    font-size:clamp(34px,8vw,52px);line-height:1.08;margin:22px auto 0;max-width:560px}
+  .hero p{margin:16px auto 0;max-width:440px;font-weight:300;font-size:17px;line-height:1.6;opacity:.88}
+  .hero .members{display:inline-block;margin-top:22px;font-size:13px;font-weight:500;
+    color:var(--sun);letter-spacing:.05em;text-transform:uppercase}
+  .hero-wave{position:absolute;left:0;right:0;bottom:-1px;display:block;width:100%;height:42px}
+
+  /* ---------- SIGNUP ---------- */
+  .signup{max-width:520px;margin:-34px auto 0;padding:0 20px;position:relative;z-index:2}
+  .panel{background:var(--white);border-radius:20px;padding:30px 26px;
+    box-shadow:0 16px 48px rgba(9,42,68,.16)}
+  .panel h2{font-family:'Fraunces',serif;font-weight:650;font-size:23px;color:var(--lake)}
+  .panel .sub{margin-top:8px;font-size:15px;font-weight:300;line-height:1.55;color:var(--ink);opacity:.8}
+  .field-row{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+  input[type=email]{
+    width:100%;padding:15px 16px;font:inherit;font-size:16px;border-radius:12px;
+    border:1.5px solid #C9BEA9;background:#FBF8F2;color:var(--ink);outline:none}
+  input[type=email]:focus{border-color:var(--spray);box-shadow:0 0 0 3px rgba(46,155,196,.18)}
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:15px 16px;font:inherit;font-size:16px;font-weight:600;border:none;
+    border-radius:12px;cursor:pointer;text-decoration:none;transition:transform .12s ease,filter .12s ease}
+  .btn:active{transform:scale(.985)}
+  .btn-primary{background:var(--sun);color:var(--lake-deep)}
+  .btn-primary:hover{filter:brightness(1.05)}
+  .btn-fb{background:var(--fb);color:#fff;margin-top:14px}
+  .btn-fb:hover{filter:brightness(1.06)}
+  .btn-fb svg{width:20px;height:20px;flex:none}
+  .fine{margin-top:14px;font-size:12.5px;font-weight:300;color:var(--ink);opacity:.6;line-height:1.5;text-align:center}
+  .divider{display:flex;align-items:center;gap:12px;margin:22px 0 0;color:var(--ink);opacity:.5;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:#D8CDB8}
+  .success{display:none;text-align:center;padding:10px 0 2px}
+  .success .check{width:52px;height:52px;margin:0 auto 14px;border-radius:50%;
+    background:rgba(46,155,196,.14);display:flex;align-items:center;justify-content:center}
+  .success h2{color:var(--lake)}
+  .success p{margin-top:8px;font-size:15px;font-weight:300;line-height:1.55;opacity:.8}
+  .err{display:none;margin-top:10px;font-size:13.5px;color:#B4472E;font-weight:500}
+
+  /* ---------- WHY ---------- */
+  .why{max-width:520px;margin:44px auto 0;padding:0 24px}
+  .why h3{font-family:'Fraunces',serif;font-weight:650;font-size:19px;color:var(--lake);text-align:center}
+  .why ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:13px}
+  .why li{display:flex;gap:12px;align-items:flex-start;font-size:15px;font-weight:300;line-height:1.55}
+  .why li svg{flex:none;margin-top:3px}
+
+  footer{margin-top:52px;padding:30px 24px 40px;background:var(--lake-deep);color:var(--sand);text-align:center}
+  footer .fm{font-size:11px;letter-spacing:.3em;font-weight:600;color:var(--spray);text-transform:uppercase}
+  footer p{margin-top:12px;font-size:14px;font-weight:300;line-height:1.7}
+  footer a{color:var(--sand);text-decoration:none}
+  footer a.site{color:var(--spray);font-weight:500}
+  @media (prefers-reduced-motion:no-preference){
+    .panel{animation:rise .5s ease-out}
+    @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wordmark">RentAtWyndham</div>
+  <h1>Stay at the Dells for&nbsp;less.</h1>
+  <p>Resort condos at Glacier Canyon and across the Wisconsin Dells — full kitchens, waterpark access, below-retail pricing.</p>
+  <span class="members">22,000+ members strong</span>
+  <svg class="hero-wave" viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 24 C 180 0, 360 0, 540 24 S 900 48, 1080 24 1350 0, 1440 24 L1440 48 L0 48 Z" fill="#F2E9DC"/>
+  </svg>
+</header>
+
+<section class="signup">
+  <div class="panel">
+    <div id="formView">
+      <h2>Get the deals first</h2>
+      <p class="sub">Drop your email and we'll send you Dells rental deals as they open up.</p>
+      <div class="field-row">
+        <input type="email" id="email" placeholder="you@email.com" autocomplete="email" inputmode="email" aria-label="Your email address">
+        <button class="btn btn-primary" id="submitBtn" onclick="submitEmail()">Send me deal alerts</button>
+      </div>
+      <div class="err" id="errMsg">That email doesn't look right — mind checking it?</div>
+      <div class="divider">and</div>
+      <a class="btn btn-fb" href="https://www.facebook.com/groups/903557099844224/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg>
+        Join Wisconsin Dells – Rental Deals
+      </a>
+      <p class="fine">No spam, ever. Just openings and deals. Unsubscribe anytime.</p>
+    </div>
+    <div class="success" id="successView">
+      <div class="check">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5" stroke="#2E9BC4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>You're on the list.</h2>
+      <p>Deal alerts are headed your way. One more step — join the group where the deals drop first:</p>
+      <a class="btn btn-fb" href="https://www.facebook.com/groups/903557099844224/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg>
+        Join Wisconsin Dells – Rental Deals
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <h3>Why families book with us</h3>
+  <ul>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9.5 18 20 6.5" stroke="#E8A33D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Full resort condos — real kitchens, real bedrooms, in-room laundry</li>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9.5 18 20 6.5" stroke="#E8A33D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Glacier Canyon stays include waterpark access</li>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9.5 18 20 6.5" stroke="#E8A33D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Priced below retail — first come, first served</li>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9.5 18 20 6.5" stroke="#E8A33D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Booked directly with a real person — no call centers</li>
+  </ul>
+</section>
+
+<footer>
+  <div class="fm">RentAtWyndham</div>
+  <p>
+    <a href="tel:+15104266367">(510) 426-6367</a><br>
+    <a href="mailto:jellis@rentatwyndham.com">jellis@rentatwyndham.com</a><br>
+    <a class="site" href="https://www.rentatwyndham.com">rentatwyndham.com</a>
+  </p>
+</footer>
+
+<script>
+// ====== Backend: Google Form silent submit (live, verified 2026-07-11) ======
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSelWl7oIZnKFt4VaNhEf3LmD678OEQZWAzY-9HrD5p3rCUMsw/formResponse";
+const EMAIL_FIELD = "entry.1719663857";
+// =============================================================================
+
+function submitEmail(){
+  const input = document.getElementById('email');
+  const err = document.getElementById('errMsg');
+  const btn = document.getElementById('submitBtn');
+  const email = input.value.trim();
+  const valid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,7}$/.test(email);
+  if(!valid){ err.style.display='block'; input.focus(); return; }
+  err.style.display='none';
+  btn.disabled = true; btn.textContent = 'Adding you…';
+  const payload = new URLSearchParams({ fvv: '1', pageHistory: '0' });
+  payload.set(EMAIL_FIELD, email);
+  payload.set('emailAddress', email);
+  fetch(FORM_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: payload })
+    .catch(()=>{})
+    .finally(()=>{
+      document.getElementById('formView').style.display='none';
+      document.getElementById('successView').style.display='block';
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+}
+document.getElementById('email').addEventListener('keydown', e=>{ if(e.key==='Enter') submitEmail(); });
+</script>
+</body>
+</html>
