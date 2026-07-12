@@ -151,7 +151,7 @@ function submitEmail(){
   const err = document.getElementById('errMsg');
   const btn = document.getElementById('submitBtn');
   const email = input.value.trim();
-  const valid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,7}$/.test(email);
+  const valid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
   if(!valid){ err.style.display='block'; input.focus(); return; }
   err.style.display='none';
   btn.disabled = true; btn.textContent = 'Adding you…';
@@ -159,7 +159,7 @@ function submitEmail(){
   payload.set(EMAIL_FIELD, email);
   payload.set('emailAddress', email);
   fetch(FORM_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: payload })
-    .catch(()=>{})
+    .catch(()=>{})   // no-cors: fire-and-forget; the Google Form records it
     .finally(()=>{
       document.getElementById('formView').style.display='none';
       document.getElementById('successView').style.display='block';
